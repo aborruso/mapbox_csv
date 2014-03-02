@@ -31,6 +31,12 @@
 		map.addLayer(punti);
 	});
 
+	function onEachFeature(feature, layer) {
+		
+		if (feature.properties && feature.properties.poi_label_term) {
+			layer.bindPopup(feature.properties.poi_label_term);
+		}
+	}
 
 	</script>
 
