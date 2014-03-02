@@ -36,7 +36,7 @@
 		map.fitBounds(punti.getBounds());
 		//map.addLayer(punti);
 		var markers = L.markerClusterGroup();
-		marker.bindPopup(poi_label_term);
+		punti.bindPopup(feature.properties.poi_label_term);
 		markers.addLayer(punti);
 		map.addLayer(markers);
 
