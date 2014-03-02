@@ -21,20 +21,14 @@
 	<script>
 	var map = L.mapbox.map('map', 'examples.map-9ijuk24y');
 
-// omnivore will AJAX-request this file behind the scenes and parse it:
-// note that there are considerations:
-// - The CSV file must contain latitude and longitude values, in column
-//   named roughly latitude and longitude
-// - The file must either be on the same domain as the page that requests it,
-//   or both the server it is requested from and the user's browser must
-//   support CORS.
-var layer = omnivore.csv('futouring_pois.csv',{delimiter: ';'}).addTo(map);
+
+	var punti = new omnivore.csv('futouring_pois.csv',{delimiter: ';'}).addTo(map);
 
 
-map.fitBounds(layer.getBounds());
+	map.fitBounds(punti.getBounds());
 
 
-</script>
+	</script>
 
 
 </body>
