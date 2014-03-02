@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
 
 	<!-- MarkerCluster https://github.com/danzel/Leaflet.markercluster -->
@@ -24,10 +24,10 @@
 	</style>
 </head>
 <body>
-	<script src="./resources/poi.js"></script>
+	
 	<div id="map" ></div>
 
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+	<script src="./resources/poi.js"></script>
 	<script>
 
 	var map = L.map('map').setView([41.905, 12.6], 8);
@@ -37,54 +37,23 @@
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
 	}).addTo(map);
 
-	var markers = new L.MarkerClusterGroup({ showCoverageOnHover: false,zoomToBoundsOnClick:true});
-
-	var punti = L.geoJson( poi, 
-		{pointToLayer: function (feature, latlng) {
-
-
-			if (feature.properties.poi_category_term == 'Chiesa') {
-				var raggio = 4
-				var colore = "#F92672"
-				var icona = "./resources/images/church-2.png" 	
-				var myIcon = L.Icon.extend({
-					iconUrl: './resources/images/church-2.png'
-				}) 				
-			}
-			if (feature.properties.poi_category_term == 'Museo') {
-				var raggio = 4
-				var colore = "#FD971E"
-				var icona = "./resources/images/art-museum-2.png"
-				var myIcon = L.Icon.extend({
-					iconUrl: './resources/images/art-museum-2.png'
-				}) 				
-			}
-			return new L.Marker(latlng, {
-				icon: new myIcon({
-					iconUrl: icona,
-					iconSize: [32, 37],
-					iconAnchor:   [16, 37],
-					popupAnchor:  [0, -30] ,
-					shadowUrl: "./resources/images/shadow.png",
-					shadowSize: [51, 37]
-				})
-			});
-		},
-		onEachFeature: function(feature, layer)
-		{
-			layer.bindPopup(feature.properties.poi_label_term);
+	
+	L.geoJson(bene, {
+		pointToLayer: function (feature, latlng) {
+			return L.Marker(latlng);
 		}
-	});
+	}).addTo(map);
 
-		//map.addLayer(punti);
 
-		markers.addLayer(punti);
-		//map.addLayer(acetate);
-		//map.addLayer(mapquest);
-		map.addLayer(markers);
-		
-		map.fitBounds(markers.getBounds());
 
-      </script>
-  </body>
-  </html>
+
+
+//markers.addLayer(punti);
+
+//map.addLayer(markers);
+
+//map.fitBounds(markers.getBounds());
+
+</script>
+</body>
+</html>

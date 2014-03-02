@@ -1,4 +1,4 @@
-var poi = {
+var bene = {
 "type": "FeatureCollection",
 
 "features": [
