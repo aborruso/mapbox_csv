@@ -22,7 +22,8 @@
 	var map = L.mapbox.map('map', 'examples.map-9ijuk24y');
 
 
-	var punti = new omnivore.csv('futouring_pois.csv',{delimiter: ';'});
+	//var punti = new omnivore.csv('futouring_pois.csv',{delimiter: ';'});
+	var punti = new omnivore.geojson('poi.geojson');
 
 
 	punti.on('ready', function() {
