@@ -21,14 +21,18 @@
 	<script>
 	var map = L.mapbox.map('map', 'examples.map-9ijuk24y');
 
+	function onEachFeature(feature, layer) {
 
-	//var punti = new omnivore.csv('futouring_pois.csv',{delimiter: ';'});
-	var punti = new omnivore.geojson('poi.geojson',{
-		onEachFeature: function (feature, layer) {
+		if (feature.properties && feature.properties.poi_label_term) {
 			layer.bindPopup(feature.properties.poi_label_term);
 		}
-	});
+	}
 
+
+	
+	var punti = new omnivore.geojson('poi.geojson',{
+		onEachFeature: onEachFeature;
+	});
 
 
 
