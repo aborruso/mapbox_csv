@@ -35,9 +35,8 @@
 	.on('ready', function() {
 		map.fitBounds(punti.getBounds());
 		var markers = L.markerClusterGroup();
-		markers.addLayer(points_rand);
+		markers.addLayer(punti);
 		map.addLayer(markers);
-
 	});
 
 	</script>
