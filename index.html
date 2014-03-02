@@ -35,11 +35,21 @@
 	.on('ready', function() {
 		map.fitBounds(punti.getBounds());
 		var markers = L.markerClusterGroup();
+		onEachFeature: function (feature, layer) 
+		{
+			layer.bindPopup("hi! I am one of thousands"); 
+		} 
 		markers.addLayer(points_rand);
 		map.addLayer(markers);
 
 	});
 
+	var points_rand = L.geoJson(punti, {
+		onEachFeature: function (feature, layer) 
+		{
+			layer.bindPopup("hi! I am one of thousands"); 
+		}   
+	});
 
 
 
