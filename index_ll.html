@@ -30,7 +30,7 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 	<script>
 
-	var map = L.map('map');
+	var map = L.map('map').setView([41.905, 12.6], 8);
 
 	L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
 		maxZoom: 18,
@@ -51,15 +51,7 @@
 					iconUrl: './resources/images/church-2.png'
 				}) 				
 			}
-			else if (feature.properties.poi_category_term == 'Museo') {
-				var raggio = 4
-				var colore = "#FD971E"
-				var icona = "./resources/images/art-museum-2.png"
-				var myIcon = L.Icon.extend({
-					iconUrl: './resources/images/art-museum-2.png'
-				}) 				
-			}
-			else {
+			if (feature.properties.poi_category_term == 'Museo') {
 				var raggio = 4
 				var colore = "#FD971E"
 				var icona = "./resources/images/art-museum-2.png"
@@ -73,7 +65,7 @@
 					iconSize: [32, 37],
 					iconAnchor:   [16, 37],
 					popupAnchor:  [0, -30] ,
-					shadowUrl: "./resources/shadow.png",
+					shadowUrl: "./resources/images/shadow.png",
 					shadowSize: [51, 37]
 				})
 			});
@@ -92,11 +84,6 @@
 		map.addLayer(markers);
 		
 		map.fitBounds(markers.getBounds());
-
-
-		map.attributionControl.setPosition('bottomleft');
-		map.attributionControl.addAttribution("PinPoint da <a href='http://www.comune.palermo.it/'>Comune di Palermo</a>");
-      //L.control.attribution ({position: 'bottomleft'}).addTo(map);
 
       </script>
   </body>

@@ -1,7 +1,6 @@
 var poi = {
 "type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-                                                                                
+
 "features": [
 { "type": "Feature", "properties": { "poi_id": "http:\/\/www.futouring.com\/download\/dataset\/futouring_pois.rdf#turismoCulturale_POI_885", "poi_category_term": "POI_InteresseArchitettonico", "poi_label_term": "Sanctuary of the SS. Trinita' or Sanctuary of Split Mountain - Gaeta" }, "geometry": { "type": "Point", "coordinates": [ 13.570915, 41.20586 ] } },
 { "type": "Feature", "properties": { "poi_id": "http:\/\/www.futouring.com\/download\/dataset\/futouring_pois.rdf#turismoCulturale_POI_886", "poi_category_term": "POI_InteresseArchitettonico", "poi_label_term": "Grotta del Turco - Gaeta" }, "geometry": { "type": "Point", "coordinates": [ 13.570915, 41.20586 ] } },
