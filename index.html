@@ -15,6 +15,9 @@
 </head>
 <body>
 
+	<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+	<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+	<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
 	<script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.0.1/leaflet-omnivore.min.js'></script>
 	<div id='map'></div>
@@ -31,8 +34,14 @@
 	var punti = omnivore.geojson('poi.geojson')
 	.on('ready', function() {
 		map.fitBounds(punti.getBounds());
-		map.addLayer(punti);
+		//map.addLayer(punti);
+		var markers = L.markerClusterGroup();
+		markers.addLayer(punti);
+
+		map.addLayer(markers);
+
 	});
+
 
 	</script>
 
