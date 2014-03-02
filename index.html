@@ -34,13 +34,19 @@
 	var punti = omnivore.geojson('poi.geojson')
 	.on('ready', function() {
 		map.fitBounds(punti.getBounds());
-		//map.addLayer(punti);
 		var markers = L.markerClusterGroup();
-		punti.bindPopup(feature.properties.poi_label_term);
-		markers.addLayer(punti);
+		var points_rand = L.geoJson(punti, {
+			onEachFeature: function (feature, layer) 
+			{
+				layer.bindPopup("hi! I am one of thousands"); 
+			}   
+		});
+		markers.addLayer(points_rand);
 		map.addLayer(markers);
 
 	});
+
+
 
 
 	</script>
