@@ -19,33 +19,20 @@
 	<script src='http://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.0.1/leaflet-omnivore.min.js'></script>
 	<div id='map'></div>
 	<script>
-	var map = L.mapbox.map('map', 'examples.map-9ijuk24y');
+	var map = L.mapbox.map('map');
 
-	function onEachFeature(feature, layer) {
-
-		if (feature.properties && feature.properties.poi_label_term) {
-			layer.bindPopup(feature.properties.poi_label_term);
-		}
-	}
-
-
-	
-	// var punti = omnivore.geojson('poi.geojson');
+	var realvista = L.tileLayer.wms("http://213.215.135.196/reflector/open/service?", {
+		layers: 'rv1',
+		format: 'image/jpeg',
+		attribution: "RealVista1.0 WMS OPEN di e-GEOS SpA - CC BY SA"
+	}).addTo(map); 
 
 
-
-
-	// punti.on('ready', function() {
-	// 	map.fitBounds(punti.getBounds());
-	// 	map.addLayer(punti);
-	// });
-
-var punti = omnivore.geojson('poi.geojson')
-    .on('ready', function() {
+	var punti = omnivore.geojson('poi.geojson')
+	.on('ready', function() {
 		map.fitBounds(punti.getBounds());
 		map.addLayer(punti);
-		onEachFeature: onEachFeature
-    });
+	});
 
 	</script>
 
