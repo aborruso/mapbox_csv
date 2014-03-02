@@ -30,17 +30,19 @@
 
 
 	
-	var punti = new omnivore.geojson('poi.geojson',{
-		onEachFeature: onEachFeature
-	});
+	var punti = new omnivore.geojson('poi.geojson');
 
 
 
 	punti.on('ready', function() {
 		map.fitBounds(punti.getBounds());
 		map.addLayer(punti);
+		onEachFeature: onEachFeature;
 	});
 
+	// punti({
+	// 	onEachFeature: onEachFeature
+	// })
 
 
 	</script>
