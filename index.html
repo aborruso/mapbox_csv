@@ -30,11 +30,9 @@
 //   support CORS.
 var layer = omnivore.csv('futouring_pois.csv',{delimiter: ';'}).addTo(map);
 
-featureLayer.on('ready', function() {
-    // featureLayer.getBounds() returns the corners of the furthest-out markers,
-    // and map.fitBounds() makes sure that the map contains these.
-    map.fitBounds(layer.getBounds());
-});
+
+map.fitBounds(layer.getBounds());
+
 
 </script>
 
