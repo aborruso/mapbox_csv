@@ -31,13 +31,24 @@
 	}).addTo(map); 
 
 
+	function eachLayer(layer) {
+		var feature = layer.toGeoJSON();
+		if (feature.properties && feature.properties.poi_label_term) {
+			layer.bindPopup(feature.properties.poi_label_term);
+		}
+	}
+
 	var punti = omnivore.geojson('poi.geojson')
 	.on('ready', function() {
 		map.fitBounds(punti.getBounds());
 		var markers = L.markerClusterGroup();
 		markers.addLayer(punti);
 		map.addLayer(markers);
+		points.eachLayer(eachLayer);
 	});
+
+
+
 
 	</script>
 
